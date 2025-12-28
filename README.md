@@ -96,3 +96,20 @@ The server follows a **Layered Architecture** pattern to separate concerns:
 
 4.  **Middleware (`server/middleware`)**:
     - Handle cross-cutting concerns like Error Handling (`AppErrorMiddleware`).
+
+## Docker Support
+
+You can run the server in a Docker container.
+
+1.  **Build the Image**:
+    ```bash
+    cd server
+    docker build -t server .
+    ```
+
+2.  **Run the Container**:
+    Map port 8080 (or any host port) to the server's internal port (3001 default).
+    ```bash
+    docker run -p 8080:3001 server
+    ```
+    *Note: The app listens on port 3001 inside the container. If you verify with `curl`, use `http://localhost:8080`.*
