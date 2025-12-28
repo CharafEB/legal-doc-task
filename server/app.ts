@@ -6,6 +6,7 @@ import cors from "cors";
 import searchRouter from "./router/searchRouter.ts";
 import summarizeDocRouter from "./router/summarizeDocRouter.ts";
 import documentsRouter from "./router/documentsRouter.ts";
+import { AppErrorMiddleware } from "./middleware/error.ts";
 //config the env file
 dotenv.config({ path: "./.env" });
 const app = express();
@@ -29,7 +30,7 @@ app.use(express.json());
 app.use("/search", searchRouter);
 app.use("/summarize", summarizeDocRouter);
 app.use("/document", documentsRouter);
-
+app.use(AppErrorMiddleware);
 //test router app;
 const documents = [
   {

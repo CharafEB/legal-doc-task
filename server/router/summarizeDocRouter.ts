@@ -5,4 +5,4 @@ const router = Router();
 
 router.post("/", summarizeFile);
 
-export default router
+export default router;
