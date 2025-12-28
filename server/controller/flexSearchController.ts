@@ -41,8 +41,7 @@ export const search = async (req: Request, res: Response) => {
 
     return res.json(
       fuseResults.map((r: any) => ({
-        id: r.item.id,
-        item: r.item,
+        data: r.item,
       }))
     );
   } catch (err) {

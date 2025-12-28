@@ -19,7 +19,7 @@ export const summarizeFile = async (req: Request, res: Response) => {
       .json({ message: "missing file name pease add one and try again " });
 
   try {
-    const filePath = new URL(`../data/${fileName}.pdf`, import.meta.url);
+    const filePath = new URL(`../data/pdf/${fileName}.pdf`, import.meta.url);
     const pdfBase64 = fs.readFileSync(filePath).toString("base64");
 
     const result = await model.generateContent([
