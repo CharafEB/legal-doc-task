@@ -25,7 +25,7 @@ export const getDocument = (
   }
 
   try {
-    const pdfPath = path.join(__dirname, "data", "pdf", `${documentTitle}.pdf`);
+    const pdfPath = path.join(__dirname, "..", "data", "pdf", `${documentTitle}.pdf`);
     res.sendFile(pdfPath);
   } catch (error) {
     next(error);

@@ -5,6 +5,7 @@ import { documents } from "../data/mockup.ts";
 const router = Router();
 
 router.post("/", getDocument);
+router.get("/view", getDocument);
 
 router.get("/", (req: Request, res: Response) => {
   res.status(200).json({ data: documents });
