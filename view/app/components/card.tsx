@@ -15,7 +15,7 @@ type DocumentCardProps = Document & {
 
 export const DocumentCard = (data: DocumentCardProps) => (
   <a
-    href={`http://localhost:8080/document?documentTitle=${data.title}`}
+    href={`https://legal-doc-task.onrender.com/document?documentTitle=${data.title}`}
     target="_blank"
     rel="noreferrer"
     className="group-hover:text-[var(--primary)] transition-colors"
@@ -90,4 +90,3 @@ export const DocumentCard = (data: DocumentCardProps) => (
     </div>
   </a>
 );
-
