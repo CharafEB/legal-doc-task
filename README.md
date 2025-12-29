@@ -1,5 +1,19 @@
-# Server Documentation
+# Legal Document Analysis Project
 
+This project consists of two main parts: a backend server and a frontend client.
+
+## Client (Frontend)
+The `view` directory contains the user interface built with **Next.js**.
+
+**Quick Start**:
+1. `cd view`
+2. `npm install`
+3. `npm run dev`
+4. Visit `http://localhost:3000`
+
+See [view/README.md](view/README.md) for more details.
+
+## Server (Backend)
 The `server` directory contains the backend logic for the application, built with Node.js and Express. It provides endpoints for searching, summarizing, and retrieving legal documents.
 
 ## Technology Stack
@@ -7,7 +21,7 @@ The `server` directory contains the backend logic for the application, built wit
 - **Express**: Web framework for handling HTTP requests.
 - **TypeScript**: Typed superset of JavaScript for better code safety.
 
-## Setup & specific scripts
+## Server Setup & Scripts
 
 1. **Navigate to the server directory**:
    ```bash
