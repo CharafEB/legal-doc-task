@@ -13,12 +13,14 @@ export const getDocument = (
 ) => {
   const documentTitle = req.query.documentTitle;
   if (!documentTitle) {
-    throw new AppError(
-      "Document title is required",
-      400,
-      "BAD_REQUEST",
-      "Please provide a document title",
-      "Ensure the query parameter 'documentTitle' is set"
+    return next(
+      new AppError(
+        "Document title is required",
+        400,
+        "BAD_REQUEST",
+        "Please provide a document title",
+        "Ensure the query parameter 'documentTitle' is set"
+      )
     );
   }
 

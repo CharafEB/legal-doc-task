@@ -10,14 +10,17 @@ export const search = async (
   const { searchValue } = req.body;
   console.log(searchValue);
 
-  if (!searchValue)
-    throw new AppError(
-      "Search value is missing",
-      400,
-      "BAD_REQUEST",
-      "Please provide a search value",
-      "Ensure the body contains 'searchValue'"
+  if (!searchValue) {
+    return next(
+      new AppError(
+        "Search value is missing",
+        400,
+        "BAD_REQUEST",
+        "Please provide a search value",
+        "Ensure the body contains 'searchValue'"
+      )
     );
+  }
 
   try {
     const searchResponse = await fuseSearch(searchValue);

@@ -1,4 +1,4 @@
-import { Request, Response } from "express";
+import type { Request, Response, NextFunction } from "express";
 
 export class AppError extends Error {
   status: number;
@@ -24,10 +24,15 @@ export class AppError extends Error {
   }
 }
 
-export const AppErrorMiddleware = (err: any, req: Request, res: Response) => {
+export const AppErrorMiddleware = (
+  err: any,
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
   const status = err.status || 500;
 
-  res.status(status).json({
+  return res.status(status).json({
     success: false,
     status: status,
     code: err.code || "INTERNAL_ERROR",
