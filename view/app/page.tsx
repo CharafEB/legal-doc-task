@@ -34,7 +34,7 @@ export default function Home() {
 
   // Initial Data Fetch
   useEffect(() => {
-    fetch("http://localhost:8080/")
+    fetch("https://legal-doc-task.onrender.com/document")
       .then((res) => res.json())
       .then((resData) => {
         setData(resData.data || []);
@@ -51,7 +51,7 @@ export default function Home() {
     setToastVariant("info");
     setOverlayOpen(true);
 
-    fetch("http://localhost:8080/search", {
+    fetch("https://legal-doc-task.onrender.com/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ searchValue: query }),
@@ -89,7 +89,7 @@ export default function Home() {
     setOverlayOpen(true);
 
     // Using the correct endpoint for summary generation
-    fetch("http://localhost:8080/summarize", {
+    fetch("https://legal-doc-task.onrender.com/summarize", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ fileName: title }),
@@ -98,25 +98,25 @@ export default function Home() {
       .then((resData) => {
         // Adapt response to SearchResult structure
         let content = "";
-        
+
         // Handle different response formats
-        if (resData.txt && typeof resData.txt === 'string') {
+        if (resData.txt && typeof resData.txt === "string") {
           // Format from user's example
           content = resData.txt;
-        } else if (resData.result && typeof resData.result === 'string') {
+        } else if (resData.result && typeof resData.result === "string") {
           content = resData.result;
-        } else if (typeof resData === 'string') {
+        } else if (typeof resData === "string") {
           content = resData;
         } else {
           content = JSON.stringify(resData, null, 2);
         }
 
         const summaryResult: SearchResult = {
-            title: `Summary: ${title}`,
-            data: {
-                id: Date.now(),
-                content: content
-            }
+          title: `Summary: ${title}`,
+          data: {
+            id: Date.now(),
+            content: content,
+          },
         };
 
         setResults([summaryResult]);

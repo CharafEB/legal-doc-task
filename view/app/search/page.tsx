@@ -33,7 +33,7 @@ function SearchContent() {
     setStatusMessage(`Searching for "${query}"...`);
     setToastVariant("info");
     
-    fetch("http://localhost:8080/search", {
+    fetch("https://legal-doc-task.onrender.com/search", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ searchValue: query }),
@@ -42,10 +42,14 @@ function SearchContent() {
       .then((data) => {
         const arr: SearchResult[] = Array.isArray(data)
           ? data
-          : (data.results as SearchResult[]) || (data.data as SearchResult[]) || [];
+          : (data.results as SearchResult[]) ||
+            (data.data as SearchResult[]) ||
+            [];
         setResults(arr);
         if (arr.length > 0) {
-          setStatusMessage(`Found ${arr.length} result${arr.length === 1 ? "" : "s"}.`);
+          setStatusMessage(
+            `Found ${arr.length} result${arr.length === 1 ? "" : "s"}.`
+          );
           setToastVariant("success");
         } else {
           setStatusMessage("No results found.");
