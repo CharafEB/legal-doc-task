@@ -15,7 +15,9 @@ import { AppErrorMiddleware } from "./middleware/error.ts";
 
 // Define allowed origins
 const allowedOrigins = [
-  "https://legal-doc-task-5i1uie1f6-charafs-projects-9716ce19.vercel.app",
+  "https://legal-doc-task-psbr5oyr0-charafs-projects-9716ce19.vercel.app",
+  "https://legal-doc-task.vercel.app/",
+  "https://legal-doc-task.vercel.app",
 ];
 
 // Define CORS options
